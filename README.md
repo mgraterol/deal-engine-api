@@ -1,5 +1,5 @@
 # README
-This repository contains code for the API for invo system. This API will manage all the business logic and all the backend subjects related to invo.
+This repository contains code for the API for Deal Engile. This API will manage all the business logic and all the backend subjects related to Deal Engine Challenge.
 
 ## Set up the application
 To install and run the project, follow the next steps
@@ -16,13 +16,12 @@ https://asdf-vm.com/guide/getting-started.html
 - Install dependencies for project
 `asdf install`
 
-- Edit your Postres credentials if you dont know your password
+- Edit your Postgres credentials if you dont know your password
 `ALTER USER your_user_name WITH PASSWORD 'new_password';`
 
-- Install bundler 2.5.5
-`gem install bundler -v 2.5.5`
+- Install Redis on your local Machine
 
-- Install libpq-dev for PG Gem
+- Install libpq-dev for PG Gem on Ubuntu
 `sudo apt install libpq-dev`
 
 - Install Gems
@@ -37,3 +36,15 @@ https://asdf-vm.com/guide/getting-started.html
 ## Run the application
 From your console run the following command
 - `rails s`
+
+* **Start Sidekiq**:
+In a separate terminal window, start the Sidekiq process to handle all asynchronous jobs (like sending emails or processing data):
+- `bundle exec sidekiq`
+
+## Run test Suite
+
+* **Run All Tests**: Execute all tests with the following command:
+- `bundle exec rspec`
+
+* **Run a Specific Test File**: To run a single test file, specify its path:
+- `bundle exec rspec spec/models/my_model_spec.rb`
