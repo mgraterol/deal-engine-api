@@ -69,8 +69,6 @@ RSpec.describe Flights::Search do
 
       it 'uses the correct search parameters in factory' do
         different_search = described_class.new(api_name, different_params)
-
-        # The mock is already set, so we can verify the call here
         expect(Integrations::Factory).to receive(:create).with(api_name, different_params)
         different_search.call
       end
@@ -78,7 +76,6 @@ RSpec.describe Flights::Search do
   end
 
   describe 'error handling robustness' do
-    # Mock the factory for any parameters to prevent `nil` errors
     before do
       allow(Integrations::Factory).to receive(:create).and_return(mock_api_client)
     end

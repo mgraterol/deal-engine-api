@@ -3,8 +3,9 @@
 # Flight search controller
 class Api::V1::FlightsController < ApplicationController
   def index
-    response = Flights::Search.new('amadeus', flight_params).call
-    render json: response, status: :ok
+    response = Flights::EnqueSearch.new(flight_params).call
+
+    render json: response, status: :accepted
   rescue StandardError => e
     render json: { errors: e.message }, status: :bad_request
   end
