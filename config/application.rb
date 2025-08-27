@@ -28,5 +28,9 @@ module DealEngineApi
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    config.action_cable.allowed_request_origins = [
+      'http://localhost:3000',
+      'http://localhost:5173' # Vite dev server
+    ]
   end
 end

@@ -14,8 +14,6 @@ module Integrations
           'travelers' => [{ 'id' => '1', 'travelerType' => 'ADULT' }],
           'sources' => ['GDS']
         }
-
-        # Remove keys with nil values before returning
         body.compact
       end
 
@@ -23,8 +21,6 @@ module Integrations
 
       def build_origin_destinations
         destinations = []
-
-        # Add the outbound flight segment if `departure_date` is present
         if @search_params[:departure_date].present?
           destinations << {
             'id' => '1',
@@ -36,7 +32,6 @@ module Integrations
           }.compact
         end
 
-        # Add the return flight segment if `return_date` is present
         if @search_params[:return_date].present?
           destinations << {
             'id' => '2',
