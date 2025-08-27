@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       post 'flights', to: 'flights#index'
+      get 'countries', to: 'countries#index'
+      get 'airports', to: 'airports#index'
     end
   end
 end
